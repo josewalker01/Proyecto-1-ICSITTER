@@ -10,7 +10,7 @@ $conn       = new PDO("mysql:host=$servername;dbname=$db", $username, $password)
 
 
 
-// GENIAL
+
 if (isset($_POST['Send'])) {
     
     try {

@@ -3,20 +3,7 @@
 
 
   body {
-    
-    font-family: 'Archivo Black', sans-serif;
-    height: 100%;
-    background-image: url(../img/bg.gif);
-    display: flex;
-    align-items: center;
-    justify-content: center;
     background-color: black;
-    overflow: hidden;
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-attachment: fixed;
-    background-size: cover;
-
 
   }
   .glitch-wrapper {
@@ -386,145 +373,110 @@
       clip: rect(58px, 9999px, 80px, 0);
     }
   }
+
+.text-default-me{
+  color:white;
+}
+
+
+.bg-navBar {
+  color:black;
+  background-color: rgba(190, 53, 35,0.9);
+
+}
+
+.navbar-txt{
+  color:black;
+  font-weight:900;
+}
+.divs_css2{
+border-width:2px;
+border-style:solid;
+border-color:rgb(201, 80, 32);
+border-radius: 2px;
+-webkit-box-shadow:0px 0px 10px 1px #FB4264 ;
+-moz-box-shadow:0px 0px 10px 1px #FB4264 ;
+box-shadow:0px 0px 10px 1px #FB4264 
+}
+.divs_css{
+  border-width:2px;
+  border-style:solid;
+  border-color:rgb(201, 80, 32);
+  border-radius: 2px;
+  -webkit-box-shadow:0px 0px 40px 5px #FB4264 ;
+  -moz-box-shadow:0px 0px 40px 5px #FB4264 ;
+  box-shadow:0px 0px 40px 5px #FB4264 
+  }
+  .divs_css3{
+    -webkit-box-shadow:0px 0px 40px -14px #FB4264 ;
+    -moz-box-shadow:0px 0px 40px -14px #FB4264 ;
+    box-shadow:0px 0px 40px -14px #FB4264 
+    }
   
 
 
-  .wrapper{
-    height: 100%;
-    width: 100%;
-    overflow: hidden;
-    position:fixed;
-}
 
 
-
-@media only screen and (min-width:300px){
-    .container {
-        width: 300px;
-        margin: 0 auto;
-    }
+.neon {
+  font-family: neon,Sans-Serif;
+  color: #FB4264;
+  font-size: 11vw;
+  line-height: 9vw;
+  text-shadow: 0 0 3vw #F40A35;
 }
 
-.col-xs-15,
-.col-sm-15,
-.col-md-15,
-.col-lg-15 {
-    position: relative;
-    min-height: 1px;
-    padding-right: 10px;
-    padding-left: 10px;
+.flux {
+  font-family: neon;
+  color: #426DFB;
+  font-size: 9vw;
+  line-height: 9vw;
+  text-shadow: 0 0 3vw #2356FF;
 }
 
-.col-xs-15 {
-    width: 20%;
-    float: left;
+.neon {
+  animation: neon 1s ease infinite;
+  -moz-animation: neon 1s ease infinite;
+  -webkit-animation: neon 1s ease infinite;
 }
-@media (min-width: 768px) {
-.col-sm-15 {
-        width: 20%;
-        float: left;
-    }
+
+@keyframes neon {
+  0%,
+  100% {
+    text-shadow: 0 0 1vw #FA1C16, 0 0 3vw #FA1C16, 0 0 10vw #FA1C16, 0 0 10vw #FA1C16, 0 0 .4vw #FED128, .5vw .5vw .1vw #806914;
+    color: #FED128;
+  }
+  50% {
+    text-shadow: 0 0 .5vw #800E0B, 0 0 1.5vw #800E0B, 0 0 5vw #800E0B, 0 0 5vw #800E0B, 0 0 .2vw #800E0B, .5vw .5vw .1vw #40340A;
+    color: #806914;
+  }
 }
-@media (min-width: 992px) {
-    .col-md-15 {
-        width: 20%;
-        float: left;
-    }
+
+.flux {
+  animation: flux 2s linear infinite;
+  -moz-animation: flux 2s linear infinite;
+  -webkit-animation: flux 2s linear infinite;
+  -o-animation: flux 2s linear infinite;
 }
-@media (min-width: 1200px) {
-    .col-lg-15 {
-        width: 20%;
-        float: left;
-    }
+
+@keyframes flux {
+  0%,
+  100% {
+    text-shadow: 0 0 1vw #1041FF, 0 0 3vw #1041FF, 0 0 10vw #1041FF, 0 0 10vw #1041FF, 0 0 .4vw #8BFDFE, .5vw .5vw .1vw #147280;
+    color: #28D7FE;
+  }
+  50% {
+    text-shadow: 0 0 .5vw #082180, 0 0 1.5vw #082180, 0 0 5vw #082180, 0 0 5vw #082180, 0 0 .2vw #082180, .5vw .5vw .1vw #0A3940;
+    color: #146C80;
+  }
 }
-.face{
-  max-width: 150%;
-  height: auto;
+@font-face {
   
+  
+  font-family: neon;
+  src: url(https://fonts.googleapis.com/css?family=Staatliches);
 }
-
-.fades-in {
-
-  -webkit-animation: fadein 7s; 
-     -moz-animation: fadein 7s; 
-      -ms-animation: fadein 7s; 
-       -o-animation: fadein 7s; 
-          animation: fadein 7s;
-}
-
-@keyframes fadein {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-
-
-@-moz-keyframes fadein {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-
-
-@-webkit-keyframes fadein {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-
-
-@-ms-keyframes fadein {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-
-
-@-o-keyframes fadein {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-#canvas-holder{
-  display: none;
-}
-#Graphic{
-  display: none;
-}
-
-#MSG{
-  display: none;
-}
-
-.fades-in2 {
-
-  -webkit-animation: fadein 4s; 
-     -moz-animation: fadein 4s; 
-      -ms-animation: fadein 4s; 
-       -o-animation: fadein 4s; 
-          animation: fadein 4s;
-}
-
-@keyframes fadein2 {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-
-
-@-moz-keyframes fadein2 {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-
-
-@-webkit-keyframes fadein2 {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-
-
-@-ms-keyframes fadein2 {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-
-
-@-o-keyframes fadein2 {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+.firebg{
+  background-image: url("../img/bg.gif");
+  background-size: cover;
+  background-position: center;
 }
