@@ -17,6 +17,7 @@
 
 <?php
 
+require_once("main.php");
 
 
 
@@ -29,12 +30,12 @@
             <div class="container-fluid">
                 <div class="navbar-header">
                     <a class="navbar-brand " href="#"><span class="navbar-txt">ICSITTER</span></a>
-                </div>
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="#"><span class="navbar-txt">Home</span></a></li>
-                    <li><a href="#"><span class="navbar-txt">Page 1</span></a></li>
-                </ul>
-            </div>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="#"><span class="navbar-txt">Home</span></a></li>
+            <li><a href="#"><span class="navbar-txt">Page 1</span></a></li>
+        </ul>
+        </div>
         </span>
     </nav>
 
@@ -53,35 +54,40 @@
         <div class="row">
             <div class="col-md-8 ">
                 <div class="divs_css2 div-scroll scrollbar" id="first_div">
-                    
-                    <div  class="w3-container w3-card w3-white w3-round w3-margin"><br>
-                        <img src="img/phoenix.png" alt="Avatar" class="w3-left w3-circle w3-margin-right hvr-rotate" style="width:60px">
-                        <span class="w3-right w3-opacity">"TIME"</span>
-                        <h4>USERNAME</h4><br>
-                        <hr class="w3-clear">
-                        <p>MESSAGE Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                    </div>
+                    <?php
 
+                    foreach($data as $row){?>
+                        <div class="w3-container w3-card w3-white w3-round w3-margin"><br>
+                            <img src="img/phoenix.png" alt="Avatar" class="w3-left w3-circle w3-margin-right hvr-rotate" style="width:60px">
+                            <span class="w3-right w3-opacity"><?=$row['msg_date']?></span>
+                            <h4>
+                                <?=$row['username']?>
+                            </h4><br>
+                            <hr class="w3-clear">
+                            <p>
+                                <?=$row['msg']?>
+                            </p>
+                        </div>
+                        <?php } ?>
                 </div>
             </div>
             <div class="col-md-4 ">
-                <div class="divs_css2" >
+                <div class="divs_css2 ">
                     <div class="container">
                         <h2 class="text-default-me">Insert your ICSTWEET:</h2>
-                        <form>
+                        <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
                             <div class="form-group">
                                 <label for="usr" class="text-default-me">Name:</label>
-                                <input type="text" class="form-control" style="width: 25%;">
+                                <input type="text" class="form-control" style="width: 25%;" name="username_current">
                                 <div class="form-group">
                                     <label for="comment" class="text-default-me">Comment:</label>
-                                    <textarea style="width: 35%;" class="form-control" rows="5" id="comment"></textarea>
+                                    <textarea style="width: 35%;" class="form-control" rows="5" id="comment" name="msg_current"></textarea>
                                     <br>
-                                    <button class="btn draw-border">Submit</button>
-                                    
+                                    <button class="btn draw-border" type="submit" name="Send">Submit</button>
                                 </div>
                             </div>
                         </form>
-                        <button id="btn2">TEST BUTTON</button>
+
                     </div>
                 </div>
             </div>
@@ -91,19 +97,3 @@
 </body>
 
 </html>
-<script>
-  $("#btn2").click(function(){
-    console.log("hola2F");
-    console.log("...");
-    $("#first_div").append(
-                    
-                    '<div id="first_div" class="w3-container w3-card w3-white w3-round w3-margin"><br>' +
-                        '<img src="img/phoenix.png" alt="Avatar" class="w3-left w3-circle w3-margin-right hvr-rotate" style="width:60px">'+
-                        '<span class="w3-right w3-opacity">TIME</span>'+
-                        '<h4>USERNAME</h4><br>'+
-                        '<hr class="w3-clear">'+
-                        '<p>MESSAGE Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>'+
-                    '</div>'
-
-                    );
-  });</script>

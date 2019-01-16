@@ -1,34 +1,22 @@
 <?php
 // conexión con base de datos
-$servername = "localhost";
-$username   = "root";
-$password   = "";
-$db         = 'faces';
-$conn       = new PDO("mysql:host=$servername;dbname=$db", $username, $password);
+require_once("util/functions.php");  
+require_once("util/db_manager.php");  
 
-
-
-
-
-
-if (isset($_POST['Send'])) {
+    if (isset($_POST['Send'])) {
+        echo "hola";
+        $username_p = $_POST['username_current'];
+        $msg = $_POST['msg_current'];
+        insertInfo($username_p, $msg);
     
-    try {
-        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql    = "INSERT INTO `faces` (`id`, `Face`) VALUES (NULL, 'genial');";
-
-        $msgsucces ="Thank You , Your Vote was Succesful! <br> You are the best!";
-        $conn->exec($sql);
-;
-    }
-    catch (PDOException $e) {
-        echo $sql . "<br>" . $e->getMessage();
-    }
-    
-    $conn = null;
 }
 
 
+//get messages XD
+
+    
+$pdo = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+$data = $pdo->query("SELECT * FROM icsitter_table")->fetchAll();
 
 
 
@@ -36,6 +24,14 @@ if (isset($_POST['Send'])) {
 
 
 
+
+
+       
+        
+
+
+
+     
 
 
 ?>

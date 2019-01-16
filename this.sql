@@ -1,0 +1,7 @@
+CREATE DATABASE ICSITTER;
+CREATE TABLE ICSITTER_table (
+    id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    username varchar(20) NOT NULL,
+    msg varchar(250) NOT NULL,
+    msg_date DATE NOT NULL
+);
