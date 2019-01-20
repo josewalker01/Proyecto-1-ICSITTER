@@ -29,7 +29,7 @@ require_once("main.php");
         <span class="hvr-sink">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a class="navbar-brand " href="#"><span class="navbar-txt">ICSITTER</span></a>
+                    <a class="navbar-brand " href="#"><span class="navbar-txt">I C S I T T E R</span></a>
         </div>
         <ul class="nav navbar-nav">
             <li class="active"><a href="#"><span class="navbar-txt">Home</span></a></li>
@@ -42,25 +42,31 @@ require_once("main.php");
     <br><br><br>
     <div class="container-fluid">
         <div class="row firebg divs_css3">
+            
             <div class="col-md-12">
-
+            <img src="img/owl.gif" class="logo-owl" height="200px" width="200px">
                 <center>
-                    <div class="neon hvr-shrink">ICSITTER </div>
+                
+                <h1 class="flux hvr-shrink">I C S I T T E R</h1>
                 </center>
 
             </div>
         </div>
-        <br><br><br><br><br><br><br><br>
+          <br>  
+        <center></center>
         <div class="row">
+        <span><span id="sd-1" class="usernameCSS2"></span></span>
+        <h1 class="usernameCSS2"></h1>
             <div class="col-md-8 ">
-                <div class="divs_css2 div-scroll scrollbar" id="first_div">
+            
+                <div class="divs_css2 div-scroll scrollbar galaxybg2" id="first_div">
                     <?php
 
                     foreach($data as $row){?>
-                        <div class="w3-container w3-card w3-white w3-round w3-margin"><br>
+                        <div class="w3-container w3-card w3-round w3-margin TEXTO"><br>
                             <img src="img/phoenix.png" alt="Avatar" class="w3-left w3-circle w3-margin-right hvr-rotate" style="width:60px">
                             <span class="w3-right w3-opacity"><?=$row['msg_date']?></span>
-                            <h4>
+                            <h4 class="usernameCSS">
                                 <?=$row['username']?>
                             </h4><br>
                             <hr class="w3-clear">
@@ -72,8 +78,10 @@ require_once("main.php");
                 </div>
             </div>
             <div class="col-md-4 ">
-                <div class="divs_css2 ">
-                    <div class="container">
+            
+                <div class="divs_css2 galaxybg">
+                    
+                    <div class="container" style="color:white">
                         <h2 class="text-default-me">Insert your ICSTWEET:</h2>
                         <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
                             <div class="form-group">
@@ -95,5 +103,26 @@ require_once("main.php");
     </div>
 
 </body>
+<script src="dist/swapdogs.min.js"></script>
+<script>
+    var sd = new SwapDogs(
+        document.getElementById('sd-1'), {
+            autoInit: true,
+            words: ["|/ICCSTWEETS:", "|/WELCOME!", "|/ICCSTWEETS:", "|/WELCOME!"],
+            letters: 'абвгдеёзжклмнопрст',
+            interval: 4000,
+            interval2: 50
+        }
+    );
+    var sd2 = new SwapDogs(
+        document.getElementById('sd-2'), {
+            autoInit: true,
+            words: ["I C S I T T E R", "I C S I T T E R", "I C S I T T E R", "I C S I T T E R"],
+            letters: 'абвгдеёзжклмнопрст',
+            interval: 4000,
+            interval2: 50
+        }
+    );
 
+</script>
 </html>
