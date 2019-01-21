@@ -1,0 +1,266 @@
+body {
+    background-color: black;
+
+}
+
+.TEXTO{
+    color:white;
+    
+        
+        background-color: rgba(35, 102, 190,0.6);
+    
+    }
+}
+
+.text-default-me {
+    color: white;
+}
+
+
+.bg-navBar {
+    color: black;
+    background-color: rgba(35, 102, 190);
+    font-family: Hacked, Sans-Serif;
+
+}
+
+.navbar-txt {
+    color: black;
+    font-weight: 900;
+}
+
+.div-scroll {
+    overflow-y: auto;
+    height: 400px;
+
+}
+
+.divs_css2 {
+
+    border-width: 2px;
+    border-style: solid;
+    border-color: rgb(32, 85, 201);
+    border-radius: 2px;
+    -webkit-box-shadow: 0px 0px 10px 1px rgb(66, 239, 251);
+    -moz-box-shadow: 0px 0px 10px 1px rgb(66, 245, 251);
+    box-shadow: 0px 0px 10px 1px rgb(66, 208, 251)
+}
+.usernameCSS{
+    animation: flux2 2s linear infinite;
+    -moz-animation: flux2 2s linear infinite;
+    -webkit-animation: flux2 2s linear infinite;
+    -o-animation: flux2 2s linear infinite;
+}
+.usernameCSS2{
+    animation: flux2 2s linear infinite;
+    -moz-animation: flux2 2s linear infinite;
+    -webkit-animation: flux2 2s linear infinite;
+    -o-animation: flux2 2s linear infinite;
+    font-family: Hacked, Sans-Serif;
+    color: #426DFB;
+    font-size: 3vw;
+    line-height: 3vw;
+    text-shadow: 0 0 3vw #2356FF;
+}
+.divs_css {
+    border-width: 2px;
+    border-style: solid;
+    border-color: rgb(32, 125, 201);
+    border-radius: 2px;
+    -webkit-box-shadow: 0px 0px 40px 5px rgb(69, 66, 251);
+    -moz-box-shadow: 0px 0px 40px 5px rgb(66, 214, 251);
+    box-shadow: 0px 0px 40px 5px rgb(66, 84, 251)
+}
+
+.divs_css3 {
+    -webkit-box-shadow: 0px 0px 40px -14px rgb(66, 115, 251);
+    -moz-box-shadow: 0px 0px 40px -14px rgb(66, 168, 251);
+    box-shadow: 0px 0px 40px -14px rgb(66, 177, 251)
+}
+
+.neon {
+    font-family: Hacked, Sans-Serif;
+    color: #FB4264;
+    font-size: 11vw;
+    line-height: 9vw;
+    text-shadow: 0 0 3vw #F40A35;
+}
+
+.flux {
+    font-family: Hacked, Sans-Serif;
+    color: #426DFB;
+    font-size: 9vw;
+    line-height: 9vw;
+    text-shadow: 0 0 3vw #2356FF;
+}
+
+.neon {
+    animation: neon 1s ease infinite;
+    -moz-animation: neon 1s ease infinite;
+    -webkit-animation: neon 1s ease infinite;
+}
+
+@keyframes neon {
+    0%,
+    100% {
+        text-shadow: 0 0 1vw #FA1C16, 0 0 3vw #FA1C16, 0 0 10vw #FA1C16, 0 0 10vw #FA1C16, 0 0 .4vw #FED128, .5vw .5vw .1vw #806914;
+        color: #FED128;
+    }
+    50% {
+        text-shadow: 0 0 .5vw #800E0B, 0 0 1.5vw #800E0B, 0 0 5vw #800E0B, 0 0 5vw #800E0B, 0 0 .2vw #800E0B, .5vw .5vw .1vw #40340A;
+        color: #806914;
+    }
+}
+
+.flux {
+    animation: flux 2s linear infinite;
+    -moz-animation: flux 2s linear infinite;
+    -webkit-animation: flux 2s linear infinite;
+    -o-animation: flux 2s linear infinite;
+}
+
+@keyframes flux {
+    0%,
+    100% {
+        text-shadow: 0 0 1vw #1041FF, 0 0 3vw #1041FF, 0 0 10vw #1041FF, 0 0 10vw #1041FF, 0 0 .4vw #8BFDFE, .5vw .5vw .1vw #147280;
+        color: #28D7FE;
+    }
+    50% {
+        text-shadow: 0 0 .5vw #082180, 0 0 1.5vw #082180, 0 0 5vw #082180, 0 0 5vw #082180, 0 0 .2vw #082180, .5vw .5vw .1vw #0A3940;
+        color: #146C80;
+    }
+}
+@keyframes flux2 {
+    0%,
+    100% {
+        text-shadow: 0 0 1vw #1041FF, 0 0 3vw #1041FF, 0 0 10vw #1041FF, 0 0 10vw #1041FF, 0 0 .4vw #8BFDFE, .5vw .5vw .1vw #147280;
+        color: #28D7FE;
+    }
+    50% {
+        text-shadow: 0 0 .5vw #082180, 0 0 1.5vw #082180, 0 0 5vw #082180, 0 0 5vw #082180, 0 0 .2vw #082180, .5vw .5vw .1vw #0A3940;
+        color: #146C80;
+    }
+}
+
+@font-face {
+
+
+    font-family: neon;
+    src: url(https://fonts.googleapis.com/css?family=Staatliches);
+}
+.logo-owl{
+  position: fixed;
+  top: 10px;
+  right: 0;
+  left:0;
+  z-index: -1;
+  
+}
+.firebg {
+    background-image: url("../img/bg.gif");
+    background-size: cover;
+    background-position: center;
+}
+.galaxybg {
+    background-image: url("../img/bg4.gif");
+    background-size: cover;
+    background-position: center;
+}
+.galaxybg2 {
+    background-image: url("../img/bg5.gif");
+    
+    
+    
+}
+
+.draw-border {
+    box-shadow: inset 0 0 0 4px #29c5b0;
+    color: #58a5d1;
+    transition: color 0.25s 0.0833333333s;
+    position: relative;
+}
+
+.draw-border::before,
+.draw-border::after {
+    border: 0 solid transparent;
+    box-sizing: border-box;
+    content: '';
+    pointer-events: none;
+    position: absolute;
+    width: 0;
+    height: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.draw-border::before {
+    border-bottom-width: 4px;
+    border-left-width: 4px;
+}
+
+.draw-border::after {
+    border-top-width: 4px;
+    border-right-width: 4px;
+}
+
+.draw-border:hover {
+    color: #2ac3ff;
+}
+
+.draw-border:hover::before,
+.draw-border:hover::after {
+    border-color: #93fff1;
+    transition: border-color 0s, width 0.25s, height 0.25s;
+    width: 100%;
+    height: 100%;
+}
+
+.draw-border:hover::before {
+    transition-delay: 0s, 0s, 0.25s;
+}
+
+.draw-border:hover::after {
+    transition-delay: 0s, 0.25s, 0s;
+}
+
+.btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    line-height: 1.5;
+    font: 700 1.2rem 'Roboto Slab', sans-serif;
+    padding: 1em 2em;
+    letter-spacing: 0.05rem;
+}
+
+.btn:focus {
+    outline: 2px dotted #55d3dc;
+}
+
+/* width */
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+
+::-webkit-scrollbar-track {
+    background: #000000;
+}
+
+/* Handle */
+
+::-webkit-scrollbar-thumb {
+    background: rgb(0, 183, 255);
+}
+
+/* Handle on hover */
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(0, 217, 255);
+}
+@font-face {
+    font-family: Hacked;
+    src: url(https://hackedfont.com/HACKED.ttf);
+}
