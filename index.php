@@ -18,6 +18,7 @@
 <?php
 require_once("main.php");
 
+
 ?>
 
 <body>
@@ -93,6 +94,33 @@ require_once("main.php");
     </div>
 
 
+    <!-- Modal ERRORS -->
+    <div id="modal1" class="modal fade" role="dialog" data-backdrop="static">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" type="button" >&times;</button>
+      </div>
+      <div class="modal-body">
+      <h4>There are some errors...</h4>
+          <h5>You might want to check:</h5>
+            <?php
+                // errores
+                echo "<h5>" . $name_err . "</h5>";
+                echo "<h5>" . $surname_err . "</h5>";
+                echo "<h5>" . $username_err . "</h5>";
+                echo "<h5>" . $email_err . "</h5>";
+            ?>
+     </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#register" data-dismiss="modal" >Try again</button>
+      </div>
+    </div>
+  </div>
+</div>
+  <!-- Modal end -->
     <!-- Modal de registro -->
     <div class="modal fade" id="register" role="dialog">
         <div class="modal-dialog">
@@ -109,30 +137,30 @@ require_once("main.php");
                 </div>
                 <div class="modal-body">
                     <!-- FORMULARIO DE REGISTRO!  -->
-                    <form action="/action_page.php">
+                    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
 
                         <div class="form-group">
-                            <label for="email">N a m e :</label>
-                            <input type="email" class="form-control" id="email">
+                            <label >N a m e :</label>
+                            <input type="text" class="form-control" name="Name">
                         </div>
                         <div class="form-group">
-                            <label for="email">L a s t  n a m e</label>
-                            <input type="email" class="form-control" id="email">
+                            <label >L a s t  n a m e</label>
+                            <input type="text" class="form-control" name="Surname">
                         </div>
 
                         <div class="form-group">
-                            <label for="email">U s e r n a m e :</label>
-                            <input type="email" class="form-control" id="email">
+                            <label >U s e r n a m e :</label>
+                            <input type="text" class="form-control"name="Username" >
                         </div>
                         <div class="form-group">
-                            <label for="email">E m a i l /  a d d r e s s :</label>
-                            <input type="email" class="form-control" id="email">
+                            <label >E m a i l /  a d d r e s s :</label>
+                            <input type="email" class="form-control"name="Email" >
                         </div>
                         <div class="form-group">
                             <label for="pwd">P a ss w o r d :</label>
-                            <input type="password" class="form-control" id="pwd">
+                            <input type="password" class="form-control"name="Password" >
                         </div>
-                        <button class="btn draw-border" type="submit" name="Send">Submit</button>
+                        <button class="btn draw-border" type="submit" name="register">Submit</button>
                         <button type="button" class="btn btn-default  pull-right" data-dismiss="modal">Close</button>
                     </form>
                     <!-- FIN FORMULARIO DE REGISTRO!  -->

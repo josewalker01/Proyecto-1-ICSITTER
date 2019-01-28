@@ -128,24 +128,24 @@ require_once("main.php");
 
                         <div class="form-group">
                             <label for="email">N a m e :</label>
-                            <input type="email" class="form-control" id="email">
+                            <input type="text" class="form-control">
                         </div>
                         <div class="form-group">
                             <label for="email">L a s t  n a m e</label>
-                            <input type="email" class="form-control" id="email">
+                            <input type="text" class="form-control">
                         </div>
 
                         <div class="form-group">
                             <label for="email">U s e r n a m e :</label>
-                            <input type="email" class="form-control" id="email">
+                            <input type="text" class="form-control">
                         </div>
                         <div class="form-group">
                             <label for="email">E m a i l /  a d d r e s s :</label>
-                            <input type="email" class="form-control" id="email">
+                            <input type="email" class="form-control">
                         </div>
                         <div class="form-group">
                             <label for="pwd">P a ss w o r d :</label>
-                            <input type="password" class="form-control" id="pwd">
+                            <input type="password" class="form-control">
                         </div>
                         <button class="btn draw-border" type="submit" name="Send">Submit</button>
                         <button type="button" class="btn btn-default  pull-right" data-dismiss="modal">Close</button>
