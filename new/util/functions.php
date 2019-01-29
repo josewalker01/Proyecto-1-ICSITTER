@@ -77,26 +77,6 @@ function validate_email($Email){
 }
 
 function login_check($email_log, $password_log){
-    try{
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $db = 'ICSITTER';
-    $conn = new PDO("mysql:host=$servername;dbname=$db", $username, $password);
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $sql_checker = "SELECT email , password FROM ICSITTER_user WHERE email='$email_log' and password='$password_log';";
-    $stmt = $conn->prepare($sql_checker);
-    $stmt->execute();
-    $row_check = $stmt->fetch(PDO::FETCH_ASSOC);
     
-    return $row_check;
-    }catch(PDOException $e)
-    {
-    echo $sql . "
-    " . $e->getMessage();
-    return false;
-    }
-    $conn = null;
-    }
-    
+}
     

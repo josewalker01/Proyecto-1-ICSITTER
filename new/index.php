@@ -35,7 +35,7 @@ require_once("main.php");
                 <input id="emailInput" placeholder="Email" class="form-control form-control-sm" type="text" name="email_log" required="">
             </div>
             <div class="form-group">
-                <input id="passwordInput" placeholder="Password" class="form-control form-control-sm" type="text" name="password_log" required="">
+                <input type="password" class="form-control" name="password_log" placeholder="Password">
             </div>
             <div class="form-group">
                 <center>

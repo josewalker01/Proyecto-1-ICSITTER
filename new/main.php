@@ -19,21 +19,22 @@ if (isset($_POST['register'])) {
 
 }
 if (isset($_POST['Log_me_in'])) {
+    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
     $email_log = $_POST['email_log'];
-    $password_log = md5(($_POST['password_log']));
-    echo $password_log;
-    $check_check = login_check($email_log,$password_log);
-    echo $check_check["1"];
-    if ($check_check > 0){
-        echo "CORRECTO!";
-    }
-    else{
-        echo "incorrecto";
-    }
+    $password_log = sha1(($_POST['password_log']));
+    $pdo = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+    $sqlgenial   = "SELECT COUNT(*) AS LOG FROM ICSITTER_user WHERE email='$email_log' && password='$password_log';";
+    $querygenial  = $conn->query($sqlgenial);
+    $countqgenial = $querygenial->fetch();
+    $querygenial->closeCursor();
+    echo"<br>";
+    echo $countqgenial['LOG'];
+    echo"<br>";
+    echo$email_log;
+    echo"<br>";
+    echo$password_log;
+    if($countqgenial['LOG']===1) {echo"hola";} else {echo"adios";}
 
-    
-    
-    
 
 }
   
@@ -41,6 +42,7 @@ if (isset($_POST['Log_me_in'])) {
 $pdo = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
 $data = $pdo->query("SELECT icsitter_user.username, icsitter_message.msg, icsitter_message.msg_date
 FROM icsitter_message INNER JOIN icsitter_user ON icsitter_message.userid = icsitter_user.id ORDER BY icsitter_message.id DESC")->fetchAll();
+
 
 
 

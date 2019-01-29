@@ -68,7 +68,7 @@ $( document ).ready(function() {
         $lastname_r =($_POST['Username']);
         $username_r =($_POST['Surname']);
         $email_r =   ($_POST['Email']);
-        $password_r =md5(($_POST['Password']));
+        $password_r =sha1(($_POST['Password']));
         register_me($name_r,$lastname_r,$username_r,$email_r,$password_r);
         
         
