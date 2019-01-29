@@ -1,0 +1,102 @@
+<?php
+function insertInfo($username_p, $msg) {
+    try {
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $dbname = 'ICSITTER';
+        $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+        $sql_insertCurrent_info = "INSERT INTO icsitter_table (username, msg, msg_date) VALUES ('$username_p', '$msg', now())";
+        $conn->exec($sql_insertCurrent_info);
+
+        }
+    catch(PDOException $e)
+        {
+        echo $sql_insertCurrent_info . "<br>" . $e->getMessage();
+        }
+    
+    $conn = null;
+
+
+}
+function register_me($name_r,$lastname_r,$username_r,$email_r,$password_r) {
+    try {
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $dbname = 'ICSITTER';
+        $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+        $sql_insertRegister_info = "INSERT INTO ICSITTER_user (name, lastname, username,email,password) VALUES ('$name_r','$lastname_r','$username_r','$email_r','$password_r')";
+        $conn->exec($sql_insertRegister_info);
+
+        }
+    catch(PDOException $e)
+        {
+        echo $sql_insertCurrent_info . "<br>" . $e->getMessage();
+        }
+    
+    $conn = null;
+
+
+}
+
+// FUNCIONES
+function validate_name($name){
+    if(empty($name)){
+        return 1;
+    }
+    elseif(preg_match('/^[a-zA-Z ]*$/', $name)){
+        return 0;
+    }
+    else{
+        return 2;
+    }
+}
+
+function validate_surname($surname){
+    if(empty($surname)){
+        return 1;
+    }elseif(preg_match('/^[a-zA-Z ]*$/',$surname)){
+        return 0;
+    }else{
+        return 2;
+    }
+}
+
+
+
+function validate_email($Email){
+    if(empty($Email)){
+        return 1;
+    }elseif(filter_var($Email, FILTER_VALIDATE_EMAIL)){
+        return 0;
+    }else{
+        return 2;
+      
+    }
+}
+
+function login_check($email_log, $password_log){
+    try{
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $db = 'ICSITTER';
+    $conn = new PDO("mysql:host=$servername;dbname=$db", $username, $password);
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $sql_checker = "SELECT email , password FROM ICSITTER_user WHERE email='$email_log' and password='$password_log';";
+    $stmt = $conn->prepare($sql_checker);
+    $stmt->execute();
+    $row_check = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+    return $row_check;
+    }catch(PDOException $e)
+    {
+    echo $sql . "
+    " . $e->getMessage();
+    return false;
+    }
+    $conn = null;
+    }
+    
+    

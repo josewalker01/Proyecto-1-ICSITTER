@@ -1,0 +1,531 @@
+body {
+    background-color: black;
+
+}
+
+.TEXTO {
+    color: white;
+
+
+    background-color: rgba(35, 102, 190, 0.6);
+
+}
+
+}
+
+.text-default-me {
+    color: white;
+}
+
+
+.bg-navBar {
+    color: black;
+    background-color: rgba(35, 102, 190);
+    font-family: Hacked, Sans-Serif;
+
+}
+
+.navbar-txt {
+    color: black;
+    font-weight: 900;
+}
+
+.div-scroll {
+    overflow-y: auto;
+    height: 400px;
+
+}
+
+.divs_css2 {
+
+    border-width: 2px;
+    border-style: solid;
+    border-color: rgb(32, 85, 201);
+    border-radius: 2px;
+    -webkit-box-shadow: 0px 0px 10px 1px rgb(66, 239, 251);
+    -moz-box-shadow: 0px 0px 10px 1px rgb(66, 245, 251);
+    box-shadow: 0px 0px 10px 1px rgb(66, 208, 251)
+}
+
+.usernameCSS {
+    animation: flux2 2s linear infinite;
+    -moz-animation: flux2 2s linear infinite;
+    -webkit-animation: flux2 2s linear infinite;
+    -o-animation: flux2 2s linear infinite;
+}
+
+.usernameCSS2 {
+    animation: flux2 2s linear infinite;
+    -moz-animation: flux2 2s linear infinite;
+    -webkit-animation: flux2 2s linear infinite;
+    -o-animation: flux2 2s linear infinite;
+    font-family: Hacked, Sans-Serif;
+    color: #426DFB;
+    font-size: 3em;
+
+    text-shadow: 0 0 3vw #2356FF;
+}
+
+.divs_css {
+    border-width: 2px;
+    border-style: solid;
+    border-color: rgb(32, 125, 201);
+    border-radius: 2px;
+    -webkit-box-shadow: 0px 0px 40px 5px rgb(69, 66, 251);
+    -moz-box-shadow: 0px 0px 40px 5px rgb(66, 214, 251);
+    box-shadow: 0px 0px 40px 5px rgb(66, 84, 251);
+    font-size: 20px;
+}
+
+.divs_css3 {
+    -webkit-box-shadow: 0px 0px 40px -14px rgb(66, 115, 251);
+    -moz-box-shadow: 0px 0px 40px -14px rgb(66, 168, 251);
+    box-shadow: 0px 0px 40px -14px rgb(66, 177, 251)
+}
+
+.neon {
+    font-family: Hacked, Sans-Serif;
+    color: #FB4264;
+    font-size: 11vw;
+    line-height: 9vw;
+    text-shadow: 0 0 3vw #F40A35;
+}
+
+.flux {
+    font-family: Hacked, Sans-Serif;
+    color: #426DFB;
+    font-size: 9vw;
+    line-height: 9vw;
+    text-shadow: 0 0 3vw #2356FF;
+}
+
+.neon {
+    animation: neon 1s ease infinite;
+    -moz-animation: neon 1s ease infinite;
+    -webkit-animation: neon 1s ease infinite;
+}
+
+@keyframes neon {
+    0%,
+    100% {
+        text-shadow: 0 0 1vw #FA1C16, 0 0 3vw #FA1C16, 0 0 10vw #FA1C16, 0 0 10vw #FA1C16, 0 0 .4vw #FED128, .5vw .5vw .1vw #806914;
+        color: #FED128;
+    }
+    50% {
+        text-shadow: 0 0 .5vw #800E0B, 0 0 1.5vw #800E0B, 0 0 5vw #800E0B, 0 0 5vw #800E0B, 0 0 .2vw #800E0B, .5vw .5vw .1vw #40340A;
+        color: #806914;
+    }
+}
+
+.flux {
+    animation: flux 2s linear infinite;
+    -moz-animation: flux 2s linear infinite;
+    -webkit-animation: flux 2s linear infinite;
+    -o-animation: flux 2s linear infinite;
+}
+
+@keyframes flux {
+    0%,
+    100% {
+        text-shadow: 0 0 1vw #1041FF, 0 0 3vw #1041FF, 0 0 10vw #1041FF, 0 0 10vw #1041FF, 0 0 .4vw #8BFDFE, .5vw .5vw .1vw #147280;
+        color: #28D7FE;
+    }
+    50% {
+        text-shadow: 0 0 .5vw #082180, 0 0 1.5vw #082180, 0 0 5vw #082180, 0 0 5vw #082180, 0 0 .2vw #082180, .5vw .5vw .1vw #0A3940;
+        color: #146C80;
+    }
+}
+
+@keyframes flux2 {
+    0%,
+    100% {
+        text-shadow: 0 0 1vw #1041FF, 0 0 3vw #1041FF, 0 0 10vw #1041FF, 0 0 10vw #1041FF, 0 0 .4vw #8BFDFE, .5vw .5vw .1vw #147280;
+        color: #28D7FE;
+    }
+    50% {
+        text-shadow: 0 0 .5vw #082180, 0 0 1.5vw #082180, 0 0 5vw #082180, 0 0 5vw #082180, 0 0 .2vw #082180, .5vw .5vw .1vw #0A3940;
+        color: #146C80;
+    }
+}
+
+@font-face {
+
+
+    font-family: neon;
+    src: url(https://fonts.googleapis.com/css?family=Staatliches);
+}
+
+body.modal-open > :not(.modal) {
+    -webkit-filter: blur(7px);
+    -moz-filter: blur(7px);
+    -o-filter: blur(7px);
+    -ms-filter: blur(7px);
+    filter: blur(7px);
+}
+
+.logo-owl {
+    position: fixed;
+    top: 10px;
+    right: 0;
+    left: 0;
+    z-index: -1;
+
+}
+
+.pet-position {
+    position: absolute;
+    top: -35px;
+    right: 30px;
+
+
+
+}
+
+.posicion-magica {
+    position: absolute;
+    z-index: 1;
+    right: 0;
+}
+
+.modal-backdrop {
+    background-color: rgb(5, 30, 255);
+    filter: 'blur(4px)' !important;
+    -webkit-filter: 'blur(4px)' !important;
+}
+
+.modal-content {
+    background-color: black;
+    color: white;
+    font-family: Hacked;
+}
+
+.firebg {
+    background-image: url("../img/bg.gif");
+    background-size: cover;
+    background-position: center;
+}
+
+.galaxybg {
+    background-image: url("../img/bg4.gif");
+    background-size: cover;
+    background-position: center;
+}
+
+.galaxybg2 {
+    background-image: url("../img/bg5.gif");
+
+
+
+}
+
+.draw-border {
+    box-shadow: inset 0 0 0 4px #29c5b0;
+    color: #58a5d1;
+    transition: color 0.25s 0.0833333333s;
+    position: relative;
+}
+
+.draw-border::before,
+.draw-border::after {
+    border: 0 solid transparent;
+    box-sizing: border-box;
+    content: '';
+    pointer-events: none;
+    position: absolute;
+    width: 0;
+    height: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.draw-border::before {
+    border-bottom-width: 4px;
+    border-left-width: 4px;
+}
+
+.draw-border::after {
+    border-top-width: 4px;
+    border-right-width: 4px;
+}
+
+.draw-border:hover {
+    color: #2ac3ff;
+}
+
+.draw-border:hover::before,
+.draw-border:hover::after {
+    border-color: #93fff1;
+    transition: border-color 0s, width 0.25s, height 0.25s;
+    width: 100%;
+    height: 100%;
+}
+
+.draw-border:hover::before {
+    transition-delay: 0s, 0s, 0.25s;
+}
+
+.draw-border:hover::after {
+    transition-delay: 0s, 0.25s, 0s;
+}
+
+.btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    line-height: 1.5;
+    font: 700 1.2rem 'Roboto Slab', sans-serif;
+    padding: 1em 2em;
+    letter-spacing: 0.05rem;
+}
+
+.btn:focus {
+    outline: 2px dotted #55d3dc;
+}
+
+/* width */
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+
+::-webkit-scrollbar-track {
+    background: #000000;
+}
+
+/* Handle */
+
+::-webkit-scrollbar-thumb {
+    background: rgb(0, 183, 255);
+}
+
+/* Handle on hover */
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(0, 217, 255);
+}
+
+@font-face {
+    font-family: Hacked;
+    src: url(https://hackedfont.com/HACKED.ttf);
+}
+
+/*\
+ * Restore Bootstrap 3 "hidden" utility classes.
+\*/
+
+/* Breakpoint XS */
+
+@media (max-width: 575px) {
+    .hidden-xs-down,
+    .hidden-sm-down,
+    .hidden-md-down,
+    .hidden-lg-down,
+    .hidden-xl-down,
+    .hidden-xs-up,
+    .hidden-unless-sm,
+    .hidden-unless-md,
+    .hidden-unless-lg,
+    .hidden-unless-xl {
+        display: none !important;
+    }
+
+}
+
+/* Breakpoint SM */
+
+@media (min-width: 576px) and (max-width: 767px) {
+    .hidden-sm-down,
+    .hidden-md-down,
+    .hidden-lg-down,
+    .hidden-xl-down,
+    .hidden-xs-up,
+    .hidden-sm-up,
+    .hidden-unless-xs,
+    .hidden-unless-md,
+    .hidden-unless-lg,
+    .hidden-unless-xl {
+        display: none !important;
+    }
+}
+
+/* Breakpoint MD */
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .hidden-md-down,
+    .hidden-lg-down,
+    .hidden-xl-down,
+    .hidden-xs-up,
+    .hidden-sm-up,
+    .hidden-md-up,
+    .hidden-unless-xs,
+    .hidden-unless-sm,
+    .hidden-unless-lg,
+    .hidden-unless-xl {
+        display: none !important;
+    }
+}
+
+/* Breakpoint LG */
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .hidden-lg-down,
+    .hidden-xl-down,
+    .hidden-xs-up,
+    .hidden-sm-up,
+    .hidden-md-up,
+    .hidden-lg-up,
+    .hidden-unless-xs,
+    .hidden-unless-sm,
+    .hidden-unless-md,
+    .hidden-unless-xl {
+        display: none !important;
+    }
+}
+
+/* Breakpoint XL */
+
+@media (min-width: 1200px) {
+    .hidden-xl-down,
+    .hidden-xs-up,
+    .hidden-sm-up,
+    .hidden-md-up,
+    .hidden-lg-up,
+    .hidden-xl-up,
+    .hidden-unless-xs,
+    .hidden-unless-sm,
+    .hidden-unless-md,
+    .hidden-unless-lg {
+        display: none !important;
+    }
+}
+
+
+.botoncito {
+    width: 135px;
+    padding: 12px 18px;
+    font-family: 'Lato', sans-serif;
+    font-size: 20px;
+    color: rgb(0, 153, 255);
+    background-color: #000000;
+    border: none;
+    border-radius: 3px;
+    position: relative;
+}
+
+.botoncito:hover {
+    background-color: #000000;
+}
+
+i {
+    margin-left: 12px;
+}
+
+.plane {
+    position: absolute;
+    right: 18px;
+}
+
+.fa-check,
+.fade {
+    -webkit-animation: fade 2s;
+    animation: fade 2s;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+}
+
+.hidden {
+    display: none;
+}
+
+.visible {
+    display: inline;
+}
+
+.fly {
+    position: absolute;
+    -webkit-animation-name: a;
+    animation-name: a;
+    -webkit-animation-duration: 10s;
+    animation-duration: 10s;
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    -webkit-animation-delay: 0;
+    animation-delay: 0;
+}
+
+.done {
+    background-color: #000000;
+    color: rgb(0, 153, 255);
+}
+
+.done:hover {
+    background-color: #000000;
+}
+
+@-webkit-keyframes fade {
+    0% {
+        color: transparent;
+    }
+    100% {
+        color: #fff;
+    }
+}
+
+@keyframes fade {
+    0% {
+        color: transparent;
+    }
+    100% {
+        color: #fff;
+    }
+}
+
+@-webkit-keyframes a {
+    0% {
+        top: 10px;
+        left: 80px;
+    }
+    4% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        top: -10000px;
+        left: 10000px;
+        -webkit-transform: rotate(13360deg);
+        transform: rotate(13360deg);
+    }
+}
+
+@keyframes a {
+    0% {
+        top: 10px;
+        left: 80px;
+    }
+    4% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        top: -10000px;
+        left: 10000px;
+        -webkit-transform: rotate(13360deg);
+        transform: rotate(13360deg);
+    }
+}
+
+input[type=text] {
+    width: 100%;
+    max-width: 300px;
+    box-sizing: border-box;
+}
+
+textarea {
+    width: 100%;
+    max-width: 300px;
+    box-sizing: border-box;
+}
