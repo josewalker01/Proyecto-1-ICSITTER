@@ -19,6 +19,7 @@ function insertInfo($username_p, $msg) {
 
 
 }
+
 function register_me($name_r,$lastname_r,$username_r,$email_r,$password_r) {
     try {
         $servername = "localhost";
@@ -76,7 +77,8 @@ function validate_email($Email){
     }
 }
 
-function login_check($email_log, $password_log){
-    
+function hash_my_thing($hashedPassword){
+    $hashedPassword=sha1($hashedPassword);
+    return $hashedPassword;
 }
     

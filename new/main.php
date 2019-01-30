@@ -20,23 +20,36 @@ if (isset($_POST['register'])) {
 }
 if (isset($_POST['Log_me_in'])) {
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-    $email_log = $_POST['email_log'];
-    $password_log = sha1(($_POST['password_log']));
+    $username_log = $_POST['username_log'];
+    $password_log = hash_my_thing(($_POST['password_log']));
     $pdo = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-    $sqlgenial   = "SELECT COUNT(*) AS LOG FROM ICSITTER_user WHERE email='$email_log' && password='$password_log';";
+    $sqlgenial   = "SELECT COUNT(*) AS LOG FROM ICSITTER_user WHERE username='$username_log' && password='$password_log';";
     $querygenial  = $conn->query($sqlgenial);
     $countqgenial = $querygenial->fetch();
     $querygenial->closeCursor();
-    echo"<br>";
-    echo $countqgenial['LOG'];
-    echo"<br>";
-    echo$email_log;
-    echo"<br>";
-    echo$password_log;
-    if($countqgenial['LOG']===1) {echo"hola";} else {echo"adios";}
+
+    if($countqgenial['LOG']==1) {
+        $_SESSION["username"] =$username_log ;
+        header('Location: registered.php');
+    } else {
+        echo"";
+    }
 
 
 }
+if (isset($_POST['Log_me_out'])) {
+    header('Location: index.php');
+    // remove all session variables
+    session_unset(); 
+    
+    // destroy the session 
+    session_destroy(); 
+
+
+}
+
+
+
   
 //get messages XD  
 $pdo = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);

@@ -1,3 +1,7 @@
+<?php
+// Start the session
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,7 +36,7 @@ require_once("main.php");
     <div id="demo" class=" w3-hide galaxybg2 posicion-magica">
         <form class="form" role="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
             <div class="form-group">
-                <input id="emailInput" placeholder="Email" class="form-control form-control-sm" type="text" name="email_log" required="">
+                <input id="emailInput" placeholder="Username" class="form-control form-control-sm" type="text" name="username_log" required="">
             </div>
             <div class="form-group">
                 <input type="password" class="form-control" name="password_log" placeholder="Password">
@@ -54,7 +58,6 @@ require_once("main.php");
 
             <div class="col-md-12 w3-animate-zoom">
                 <center>
-
                     <h1 class="flux hvr-shrink">I C S I T T E R</h1>
                 </center>
 

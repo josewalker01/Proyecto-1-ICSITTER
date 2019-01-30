@@ -1,3 +1,7 @@
+<?php
+// Start the session
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,6 +23,7 @@
 <?php
 require_once("main.php");
 
+
 ?>
 
 <body>
@@ -26,11 +31,13 @@ require_once("main.php");
         <a href="#" class="w3-bar-item w3-button">I C S I T T E R</a>
         <a href="#" class="w3-bar-item w3-button">>Home</a>
         <a href="#" class="w3-bar-item w3-button">About</a>
-        <button type="button" class="btn w3-button w3-right">
+        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+        <button class="btn w3-button w3-right" type="submit" name="Log_me_out">
           <span class="glyphicon glyphicon-log-out"></span> Log out
         </button>
+        </form>
         <img src="img/phoenix.png" alt="Avatar" class="w3-right w3-circle w3-margin-right hvr-rotate" style="width:35px">
-        <a class="w3-right w3-button" onclick="abretesesamo()">Username </i></a>
+        <a class="w3-right w3-button" onclick="abretesesamo()"><?php echo $_SESSION["username"];?></i></a>
     </div>
 
     <br><br><br>
@@ -92,8 +99,8 @@ require_once("main.php");
                         <h2 class="text-default-me">Insert your ICSTWEET:</h2>
                         <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
                             <div class="form-group">
-                                <label for="usr" class="text-default-me">Name:</label>
-                                <input type="text" class="form-control" name="username_current">
+                                <label for="usr" class="text-default-me">Name: <?php echo $_SESSION["username"];?></label>
+                                
                                 <div class="form-group">
                                     <label for="comment" class="text-default-me">Comment:</label>
                                     <textarea class="form-control" rows="5" id="comment" name="msg_current"></textarea>

@@ -65,10 +65,10 @@ $( document ).ready(function() {
     //condicion si todo es correcto
     if($name_error == 0 && $surname_error == 0  && $email_error == 0){
         $name_r =    ($_POST['Name']);
-        $lastname_r =($_POST['Username']);
-        $username_r =($_POST['Surname']);
+        $lastname_r =($_POST['Surname']);
+        $username_r =($_POST['Username']);
         $email_r =   ($_POST['Email']);
-        $password_r =sha1(($_POST['Password']));
+        $password_r =hash_my_thing(($_POST['Password']));
         register_me($name_r,$lastname_r,$username_r,$email_r,$password_r);
         
         
