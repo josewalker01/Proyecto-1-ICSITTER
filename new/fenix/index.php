@@ -28,7 +28,7 @@ require_once("main.php");
 <body>
     <div class="w3-bar bg-navBar divs_css w3-animate-top">
         <a href="#" class="w3-bar-item w3-button">I C S I T T E R</a>
-        <a href="#" class="w3-bar-item w3-button">>Home</a>
+        <a href="registered.php" class="w3-bar-item w3-button">>Home</a>
         <a href="#" class="w3-bar-item w3-button">About</a>
         <button class="w3-right w3-button w3-bar-item" onclick="abretesesamo()">..::Login::.</button>
     </div>
@@ -66,20 +66,17 @@ require_once("main.php");
         <br>
         <div class="row test">
             <div class="col-md-4 left-bg hidden-lg-down w3-animate-left">
-                <img src="img/left.gif" style="width:100%">
             </div>
             <div class="col-md-4 w3-animate-bottom">
-                
                 <span><span id="sd-1" class="usernameCSS2"></span></span>
-                <h1 class="usernameCSS2"></h1>
+                <h1 class="username"></h1>
                 <div class="divs_css2 div-scroll scrollbar galaxybg2" id="first_div">
                     <?php
-
                     foreach($data as $row){?>
                         <div class="w3-container w3-card w3-round w3-margin TEXTO"><br>
                             <img src="img/phoenix.png" alt="Avatar" class="w3-left w3-circle w3-margin-right hvr-rotate" style="width:60px">
                             <span class="w3-right w3-opacity"><?=$row['msg_date']?></span>
-                            <h4 class="usernameCSS">
+                            <h4 style="color:<?=$row['username_color']?>;">
                                 <?=$row['username']?>
                             </h4><br>
                             <hr class="w3-clear">
@@ -91,11 +88,70 @@ require_once("main.php");
                 </div>
             </div>
             <div class="col-md-4 hidden-lg-down w3-animate-right">
-                <img src="img/right.gif" style="width:100%;">
             </div>
         </div>
     </div>
+    <!-- Modal SUCCESS! -->
+    <div id="register_succesful" class="modal fade" role="dialog" data-backdrop="static">
+  <div class="modal-dialog">
 
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" type="button" >&times;</button>
+      </div>
+      <div class="modal-body">
+      <h4>Congrats    <?php
+              echo($_POST['Username']);?>!</h4>
+            <center>
+            <section class="c-container">
+  
+  <div class="o-circle c-container__circle o-circle__sign--success">
+    <div class="o-circle__sign"></div>  
+  </div>     
+  
+</section>
+            <h5>YOU`RE IN!</h5>
+            </center>
+     </div>
+      <div class="modal-footer">
+      <button type="button" class="btn btn-default  pull-right" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+  <!-- Modal end -->
+  <!-- Modal failure! -->
+  <div id="login_failed" class="modal fade" role="dialog" data-backdrop="static">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" type="button" >&times;</button>
+      </div>
+      <div class="modal-body">
+      <h4>Something went wrong    <?php
+              echo($_POST['username_log']);?>!</h4>
+            <center>
+            <section class="c-container"> 
+  <div class="o-circle c-container__circle o-circle__sign--failure">
+    <div class="o-circle__sign"></div>  
+  </div>   
+  
+</section>   
+        <h5>__$$%% A C C E S S DENIED!__$$%%</h5>
+            <h5>maybe its your password!</h5>
+            <h5>or your username...</h5>
+            </center>
+     </div>
+      <div class="modal-footer">
+      <button type="button" class="btn btn-default  pull-right" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+  <!-- Modal end -->
 
     <!-- Modal ERRORS -->
     <div id="modal1" class="modal fade" role="dialog" data-backdrop="static">
@@ -109,6 +165,12 @@ require_once("main.php");
       <div class="modal-body">
       <h4>There are some errors...</h4>
           <h5>You might want to check:</h5>
+          <section class="c-container"> 
+  <div class="o-circle c-container__circle o-circle__sign--failure">
+    <div class="o-circle__sign"></div>  
+  </div>   
+  
+</section>   
             <?php
                 // errores
                 echo "<h5>" . $name_err . "</h5>";
@@ -133,7 +195,6 @@ require_once("main.php");
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <center>
-
                         <img src="img/owl.gif" height="200px" width="200px">
                     </center>
                     <h4 class="modal-title usernameCSS2">REGISTER</h4>
@@ -169,14 +230,10 @@ require_once("main.php");
                     <!-- FIN FORMULARIO DE REGISTRO!  -->
                 </div>
                 <div class="modal-footer">
-
                 </div>
             </div>
-
         </div>
     </div>
-
-
 
 </body>
 

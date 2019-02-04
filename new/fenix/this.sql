@@ -5,7 +5,8 @@ CREATE TABLE ICSITTER_user (
     lastname varchar(50) NOT NULL,
     username varchar(20) NOT NULL,
     email varchar(20) NOT NULL,
-    password varchar(500) NOT NULL
+    password varchar(500) NOT NULL,
+    username_color varchar(200) DEFAULT '#ffffff'
 
 );
 

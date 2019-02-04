@@ -19,6 +19,47 @@ function insertInfo($username_p, $msg) {
 
 
 }
+function update_my_password($username_id, $new_edited_password) {
+    try {
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $dbname = 'ICSITTER';
+        $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+        $sql_insertCurrent_info = "UPDATE `icsitter_user` SET `password` = '$new_edited_password' WHERE `icsitter_user`.`id` = '$username_id';";
+        $conn->exec($sql_insertCurrent_info);
+
+        }
+    catch(PDOException $e)
+        {
+        echo $sql_insertCurrent_info . "<br>" . $e->getMessage();
+        }
+    
+    $conn = null;
+
+
+}
+function update_my_color($username_id, $new_edited_color) {
+    try {
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $dbname = 'ICSITTER';
+        $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+        $sql_insertCurrent_info = "UPDATE `icsitter_user` SET `username_color` = '$new_edited_color' WHERE `icsitter_user`.`id` = '$username_id';";
+        $conn->exec($sql_insertCurrent_info);
+
+        }
+    catch(PDOException $e)
+        {
+        echo $sql_insertCurrent_info . "<br>" . $e->getMessage();
+        }
+    
+    $conn = null;
+
+
+}
+
 
 function register_me($name_r,$lastname_r,$username_r,$email_r,$password_r) {
     try {

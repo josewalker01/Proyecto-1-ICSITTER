@@ -30,7 +30,6 @@ if (isset($_POST['Send'])) {
     $msg = $_POST['msg_current'];
     insertInfo($username_p, $msg);
     header("Location: registered.php");
-
 }
 if(empty($_SESSION["username"])){
     header("Location: index.php");
@@ -40,17 +39,24 @@ if(empty($_SESSION["username"])){
 <body>
     <div class="w3-bar bg-navBar divs_css w3-animate-top">
         <a href="#" class="w3-bar-item w3-button">I C S I T T E R</a>
-        <a href="#" class="w3-bar-item w3-button">>Home</a>
+        <a href="registered.php" class="w3-bar-item w3-button">>Home</a>
         <a href="#" class="w3-bar-item w3-button">About</a>
-        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-        <button class="btn w3-button w3-right" type="submit" name="Log_me_out">
+        <img src="img/phoenix.png" alt="Avatar" class="w3-right w3-circle w3-margin-right hvr-rotate" style="width:35px">
+        <a class="w3-right w3-button" onclick="abretesesamo2()"><?php echo $_SESSION["username"];?></i></a>
+    </div>
+  <!-- user settings...  -->
+    <div id="user_settings" class=" w3-hide galaxybg2 posicion-magica">
+
+    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+        <button class="btn w3-button w3-left" type="submit" name="Log_me_out">
           <span class="glyphicon glyphicon-log-out"></span> Log out
+        </button><br>
+        <button class="btn w3-button w3-left" type="submit" name="settings">
+          <span class="glyphicon glyphicon-cog"></span> settings 
         </button>
         </form>
-        <img src="img/phoenix.png" alt="Avatar" class="w3-right w3-circle w3-margin-right hvr-rotate" style="width:35px">
-        <a class="w3-right w3-button" onclick="abretesesamo()"><?php echo $_SESSION["username"];?></i></a>
     </div>
-
+     <!--  user settings drop down end...  -->
     <br><br><br>
     <!-- FRONT END...  -->
     <div class="container-fluid">
@@ -67,7 +73,7 @@ if(empty($_SESSION["username"])){
         <div class="row test">
 
             <div class="col-md-4 left-bg hidden-lg-down w3-animate-left">
-                <img src="img/left.gif" style="width:100%">
+               
             </div>
             <div class="col-md-4  w3-animate-bottom">
                 <span><span id="sd-1" class="usernameCSS2"></span></span>
@@ -79,7 +85,7 @@ if(empty($_SESSION["username"])){
                         <div class="w3-container w3-card w3-round w3-margin TEXTO"><br>
                             <img src="img/phoenix.png" alt="Avatar" class="w3-left w3-circle w3-margin-right hvr-rotate" style="width:60px">
                             <span class="w3-right w3-opacity"><?=$row['msg_date']?></span>
-                            <h4 class="usernameCSS">
+                            <h4 style="color:<?=$row['username_color']?>;">
                                 <?=$row['username']?>
                             </h4><br>
                             <hr class="w3-clear">
@@ -100,7 +106,6 @@ if(empty($_SESSION["username"])){
             </div>
             <div class="col-md-4 w3-animate-right ">
 
-                <img id="left-img" src="img/right.gif" class="hidden-lg-down" style="width:100%;">
                 <div class="divs_css2 galaxybg" id="write-form" style="display: none; position: relative;top: 80px;">
 
                     <div class="container" style="color:white">
@@ -152,6 +157,14 @@ if(empty($_SESSION["username"])){
 
         });
     });
+    function abretesesamo2() {
+        var x = document.getElementById("user_settings");
+        if (x.className.indexOf("w3-show") == -1) {
+            x.className += " w3-show";
+        } else {
+            x.className = x.className.replace(" w3-show", "");
+        }
+    }
 
 </script>
 

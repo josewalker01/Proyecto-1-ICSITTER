@@ -5,16 +5,36 @@ require_once("util/functions.php");
 require_once("util/db_manager.php");  
 //get messages XD  
 $pdo = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-$data = $pdo->query("SELECT icsitter_user.username, icsitter_message.msg, icsitter_message.msg_date
+$data = $pdo->query("SELECT icsitter_user.username, icsitter_message.msg, icsitter_message.msg_date,icsitter_user.username_color
 FROM icsitter_message INNER JOIN icsitter_user ON icsitter_message.userid = icsitter_user.id ORDER BY icsitter_message.id DESC")->fetchAll();
+$modalScript7 = "<script>
+$( document ).ready(function() {
+    $('#login_failed').modal({show:true});
+});
+</script>";
 
 
 $name_err = $surname_err = $email_err = "";
 
 
 if (isset($_POST['register'])) {
-    require_once("utilities/errorConditions.php");  
+    
     $errorCount = 0;
+    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+    $username_log=($_POST['Username']);
+    $pdo = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+    $sqlgenial   = "SELECT COUNT(*) AS LOG FROM ICSITTER_user WHERE username='$username_log'";
+    $querygenial  = $conn->query($sqlgenial);
+    $countqgenial = $querygenial->fetch();
+    $querygenial->closeCursor();
+    require_once("utilities/errorConditions.php");  
+   
+   
+    
+    
+    
+ 
+
 
 }
 if (isset($_POST['Log_me_in'])) {
@@ -26,12 +46,11 @@ if (isset($_POST['Log_me_in'])) {
     $querygenial  = $conn->query($sqlgenial);
     $countqgenial = $querygenial->fetch();
     $querygenial->closeCursor();
-
     if($countqgenial['LOG']==1) {
         $_SESSION["username"] =$username_log ;
         header('Location: registered.php');
     } else {
-        echo"";
+        echo $modalScript7;
     }
 
 
@@ -46,7 +65,22 @@ if (isset($_POST['Log_me_out'])) {
 
 
 }
+if (isset($_POST['settings'])) {
+    header('Location: user_settings.php');
 
+
+
+
+}
+
+
+if (isset($_POST['write_section'])) {
+    header('Location: registered.php');
+
+
+
+
+}
 
 
   
