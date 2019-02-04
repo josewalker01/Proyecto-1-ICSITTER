@@ -16,7 +16,6 @@ session_start();
     <link type="text/css" rel="stylesheet" href="css/hover.css" />
     <script type="text/javascript" src="js/main.js"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css'>
 </head>
 
 
@@ -31,15 +30,27 @@ require_once("main.php");
         <a href="#" class="w3-bar-item w3-button">I C S I T T E R</a>
         <a href="#" class="w3-bar-item w3-button">>Home</a>
         <a href="#" class="w3-bar-item w3-button">About</a>
-        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-        <button class="btn w3-button w3-right" type="submit" name="Log_me_out">
-          <span class="glyphicon glyphicon-log-out"></span> Log out
-        </button>
-        </form>
-        <img src="img/phoenix.png" alt="Avatar" class="w3-right w3-circle w3-margin-right hvr-rotate" style="width:35px">
-        <a class="w3-right w3-button" onclick="abretesesamo()"><?php echo $_SESSION["username"];?></i></a>
+        <button class="w3-right w3-button w3-bar-item" onclick="abretesesamo()">..::Login::.</button>
     </div>
 
+    <div id="demo" class=" w3-hide galaxybg2 posicion-magica">
+        <form class="form" role="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+            <div class="form-group">
+                <input id="emailInput" placeholder="Username" class="form-control form-control-sm" type="text" name="username_log" required="">
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" name="password_log" placeholder="Password">
+            </div>
+            <div class="form-group">
+                <center>
+                    <button class="btn draw-border" type="submit" name="Log_me_in">log_in</button>
+                </center>
+            </div>
+            <div class="form-group text-center TEXTO">
+                <small><a href="#" data-toggle="modal" data-target="#register">Dont have an account?</a></small>
+            </div>
+        </form>
+    </div>
     <br><br><br>
     <!-- FRONT END...  -->
     <div class="container-fluid">
@@ -47,21 +58,18 @@ require_once("main.php");
 
             <div class="col-md-12 w3-animate-zoom">
                 <center>
-
                     <h1 class="flux hvr-shrink">I C S I T T E R</h1>
                 </center>
 
             </div>
         </div>
         <br>
-
         <div class="row test">
-
             <div class="col-md-4 left-bg hidden-lg-down w3-animate-left">
                 <img src="img/left.gif" style="width:100%">
             </div>
-            <div class="col-md-4  w3-animate-bottom">
-                <img class="pet-position" src="img/pet.gif" style="width:30%">
+            <div class="col-md-4 w3-animate-bottom">
+                
                 <span><span id="sd-1" class="usernameCSS2"></span></span>
                 <h1 class="usernameCSS2"></h1>
                 <div class="divs_css2 div-scroll scrollbar galaxybg2" id="first_div">
@@ -81,40 +89,41 @@ require_once("main.php");
                         </div>
                         <?php } ?>
                 </div>
-                <br>
-                <div id="hideme">
-                    <button id="button-plane" class="botoncito btn draw-border" style="font-family:hacked;">
-                    <span id="spansito">Write!</span>
-                    <i id="plane" class="fa fa-paper-plane fa-lg replace"></i>
-                    <i class="fa fa-paper-plane plane fa-lg hidden"></i>
-                </button>
-                </div>
             </div>
-            <div class="col-md-4 w3-animate-right ">
-
-                <img id="left-img" src="img/right.gif" class="hidden-lg-down" style="width:100%;">
-                <div class="divs_css2 galaxybg" id="write-form" style="display: none; position: relative;top: 80px;">
-
-                    <div class="container" style="color:white">
-                        <h2 class="text-default-me">Insert your ICSTWEET:</h2>
-                        <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-                            <div class="form-group">
-                                <label for="usr" class="text-default-me">Name: <?php echo $_SESSION["username"];?></label>
-                                
-                                <div class="form-group">
-                                    <label for="comment" class="text-default-me">Comment:</label>
-                                    <textarea class="form-control" rows="5" id="comment" name="msg_current"></textarea>
-                                    <br>
-                                    <button class="btn draw-border" type="submit" name="Send">Submit</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+            <div class="col-md-4 hidden-lg-down w3-animate-right">
+                <img src="img/right.gif" style="width:100%;">
             </div>
         </div>
     </div>
 
+
+    <!-- Modal ERRORS -->
+    <div id="modal1" class="modal fade" role="dialog" data-backdrop="static">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" type="button" >&times;</button>
+      </div>
+      <div class="modal-body">
+      <h4>There are some errors...</h4>
+          <h5>You might want to check:</h5>
+            <?php
+                // errores
+                echo "<h5>" . $name_err . "</h5>";
+                echo "<h5>" . $surname_err . "</h5>";
+                echo "<h5>" . $username_err . "</h5>";
+                echo "<h5>" . $email_err . "</h5>";
+            ?>
+     </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#register" data-dismiss="modal" >Try again</button>
+      </div>
+    </div>
+  </div>
+</div>
+  <!-- Modal end -->
     <!-- Modal de registro -->
     <div class="modal fade" id="register" role="dialog">
         <div class="modal-dialog">
@@ -131,30 +140,30 @@ require_once("main.php");
                 </div>
                 <div class="modal-body">
                     <!-- FORMULARIO DE REGISTRO!  -->
-                    <form action="/action_page.php">
+                    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
 
                         <div class="form-group">
-                            <label for="email">N a m e :</label>
-                            <input type="text" class="form-control">
+                            <label >N a m e :</label>
+                            <input type="text" class="form-control" name="Name">
                         </div>
                         <div class="form-group">
-                            <label for="email">L a s t  n a m e</label>
-                            <input type="text" class="form-control">
+                            <label >L a s t  n a m e</label>
+                            <input type="text" class="form-control" name="Surname">
                         </div>
 
                         <div class="form-group">
-                            <label for="email">U s e r n a m e :</label>
-                            <input type="text" class="form-control">
+                            <label >U s e r n a m e :</label>
+                            <input type="text" class="form-control"name="Username" >
                         </div>
                         <div class="form-group">
-                            <label for="email">E m a i l /  a d d r e s s :</label>
-                            <input type="email" class="form-control">
+                            <label >E m a i l /  a d d r e s s :</label>
+                            <input type="email" class="form-control"name="Email" >
                         </div>
                         <div class="form-group">
                             <label for="pwd">P a ss w o r d :</label>
-                            <input type="password" class="form-control">
+                            <input type="password" class="form-control"name="Password" >
                         </div>
-                        <button class="btn draw-border" type="submit" name="Send">Submit</button>
+                        <button class="btn draw-border" type="submit" name="register">Submit</button>
                         <button type="button" class="btn btn-default  pull-right" data-dismiss="modal">Close</button>
                     </form>
                     <!-- FIN FORMULARIO DE REGISTRO!  -->
@@ -170,6 +179,7 @@ require_once("main.php");
 
 
 </body>
+
 <script src="dist/swapdogs.min.js"></script>
 <script>
     var sd = new SwapDogs(
@@ -182,20 +192,16 @@ require_once("main.php");
         }
     );
 
-</script>
-<script>
-    $(document).ready(function() {
-        $('#button-plane').on("click", function() {
-            $('#plane').addClass('fly');
-            $('.hidden').addClass('visible');
-            $('#left-img').hide("slow");
-            $('#write-form').show("slow");
-            $('#spansito').text('Write!');
-            $('#hideme').delay(2300).hide('slow');
-
-        });
-    });
+    function abretesesamo() {
+        var x = document.getElementById("demo");
+        if (x.className.indexOf("w3-show") == -1) {
+            x.className += " w3-show";
+        } else {
+            x.className = x.className.replace(" w3-show", "");
+        }
+    }
 
 </script>
+
 
 </html>

@@ -6,7 +6,7 @@ function insertInfo($username_p, $msg) {
         $password = "";
         $dbname = 'ICSITTER';
         $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-        $sql_insertCurrent_info = "INSERT INTO icsitter_table (username, msg, msg_date) VALUES ('$username_p', '$msg', now())";
+        $sql_insertCurrent_info = "INSERT INTO ICSITTER_message (userid, msg, msg_date) VALUES ('$username_p', '$msg', now())";
         $conn->exec($sql_insertCurrent_info);
 
         }
@@ -63,8 +63,6 @@ function validate_surname($surname){
         return 2;
     }
 }
-
-
 
 function validate_email($Email){
     if(empty($Email)){
