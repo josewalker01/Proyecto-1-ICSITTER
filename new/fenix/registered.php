@@ -25,11 +25,27 @@ require_once("main.php");
 $This_user_ID=$_SESSION["username"];
 $iduser_find = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
 $user_id = $iduser_find->query("SELECT id FROM `icsitter_user` WHERE `username`='$This_user_ID';")->fetch(Pdo::FETCH_COLUMN);
+$user_img = $iduser_find->query("SELECT username_img_url FROM `icsitter_user` WHERE `username`='$This_user_ID';")->fetch(Pdo::FETCH_COLUMN);
+
+
+
 if (isset($_POST['Send'])) {
-    $username_p = $user_id;
-    $msg = $_POST['msg_current'];
-    insertInfo($username_p, $msg);
-    header("Location: registered.php");
+    $msg_errors=0;
+    if (!empty($_POST['msg_current'])    ) {
+        $msg_errors=$msg_errors+1;
+        $username_p = $user_id;
+        $msg = $_POST['msg_current'];
+        insertInfo($username_p, $msg);
+        header("Location: registered.php");
+    } 
+    else {
+        $password_error = "This tweet is empty... 🤔";
+        echo $modalScript8;
+    }
+
+
+
+
 }
 if(empty($_SESSION["username"])){
     header("Location: index.php");
@@ -41,7 +57,9 @@ if(empty($_SESSION["username"])){
         <a href="#" class="w3-bar-item w3-button">I C S I T T E R</a>
         <a href="registered.php" class="w3-bar-item w3-button">>Home</a>
         <a href="#" class="w3-bar-item w3-button">About</a>
-        <img src="img/phoenix.png" alt="Avatar" class="w3-right w3-circle w3-margin-right hvr-rotate" style="width:35px">
+                
+        <img src=" <?php echo $user_img; ?> " alt="Avatar" class="w3-right w3-circle w3-margin-right hvr-rotate" style="width:35px">
+
         <a class="w3-right w3-button" onclick="abretesesamo2()"><?php echo $_SESSION["username"];?></i></a>
     </div>
   <!-- user settings...  -->
@@ -80,12 +98,12 @@ if(empty($_SESSION["username"])){
                 <h1 class="usernameCSS2"></h1>
                 <div class="divs_css2 div-scroll scrollbar galaxybg2" id="first_div">
                     <?php
-
+ 
                     foreach($data as $row){?>
                         <div class="w3-container w3-card w3-round w3-margin TEXTO"><br>
-                            <img src="img/phoenix.png" alt="Avatar" class="w3-left w3-circle w3-margin-right hvr-rotate" style="width:60px">
+                            <img src="<?=$row['username_img_url']?>" alt="Avatar" class="w3-left w3-circle w3-margin-right hvr-rotate" style="width:60px;height:75px;">
                             <span class="w3-right w3-opacity"><?=$row['msg_date']?></span>
-                            <h4 style="color:<?=$row['username_color']?>;">
+                            <h4 style="color:<?=$row['username_color']?>">
                                 <?=$row['username']?>
                             </h4><br>
                             <hr class="w3-clear">
@@ -116,7 +134,11 @@ if(empty($_SESSION["username"])){
                                 
                                 <div class="form-group">
                                     <label for="comment" class="text-default-me">Comment:</label>
-                                    <textarea class="form-control" rows="5" id="comment" name="msg_current"></textarea>
+                                        <div class="container">
+                                        
+                                            <textarea style='resize: none;'  rows="10" id="faceText" class="form-control"  name="msg_current"></textarea>
+                                            
+                                        </div>
                                     <br>
                                     <button class="btn draw-border" type="submit" name="Send">Submit</button>
                                 </div>
@@ -127,7 +149,33 @@ if(empty($_SESSION["username"])){
             </div>
         </div>
     </div>
+<!-- Modal ERRORS -->
+<div id="errors_settings" class="modal fade" role="dialog" data-backdrop="static">
+                <div class="modal-dialog">
 
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" type="button">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <h4>There are some errors...</h4>
+                            <section class="c-container"> 
+                                <div class="o-circle c-container__circle o-circle__sign--failure">
+                                  <div class="o-circle__sign"></div>  
+                                </div>   
+                            </section>   
+                            <h5>You might want to check:</h5>
+                            <?php
+                            // errores
+                            echo "<h5>" . $password_error . "</h5>"; ?>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-toggle="modal" data-target="#register" data-dismiss="modal">Try again</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
 
 
@@ -166,6 +214,20 @@ if(empty($_SESSION["username"])){
         }
     }
 
+</script>
+
+<script type="text/javascript" src="js/los_emojis.js"></script>
+<script type="text/javascript">
+        $(function() {
+
+            $('#faceText').emojiInit({
+                fontSize: 20,
+                success: function(data) {
+
+                },
+                error: function(data, msg) {}
+            });
+        });
 </script>
 
 </html>

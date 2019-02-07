@@ -74,7 +74,7 @@ require_once("main.php");
                     <?php
                     foreach($data as $row){?>
                         <div class="w3-container w3-card w3-round w3-margin TEXTO"><br>
-                            <img src="img/phoenix.png" alt="Avatar" class="w3-left w3-circle w3-margin-right hvr-rotate" style="width:60px">
+                            <img src="<?=$row['username_img_url']?>" alt="Avatar" class="w3-left w3-circle w3-margin-right hvr-rotate" style="width:60px;height:75px;">
                             <span class="w3-right w3-opacity"><?=$row['msg_date']?></span>
                             <h4 style="color:<?=$row['username_color']?>;">
                                 <?=$row['username']?>
@@ -205,24 +205,24 @@ require_once("main.php");
 
                         <div class="form-group">
                             <label >N a m e :</label>
-                            <input type="text" class="form-control" name="Name">
+                            <input style="font-family: Arial, Helvetica, sans-serif;" type="text" class="form-control" name="Name">
                         </div>
                         <div class="form-group">
                             <label >L a s t  n a m e</label>
-                            <input type="text" class="form-control" name="Surname">
+                            <input style="font-family: Arial, Helvetica, sans-serif;" type="text" class="form-control" name="Surname">
                         </div>
 
                         <div class="form-group">
                             <label >U s e r n a m e :</label>
-                            <input type="text" class="form-control"name="Username" >
+                            <input style="font-family: Arial, Helvetica, sans-serif;" type="text" class="form-control"name="Username" >
                         </div>
                         <div class="form-group">
                             <label >E m a i l /  a d d r e s s :</label>
-                            <input type="email" class="form-control"name="Email" >
+                            <input style="font-family: Arial, Helvetica, sans-serif;" type="email" class="form-control"name="Email" >
                         </div>
                         <div class="form-group">
                             <label for="pwd">P a ss w o r d :</label>
-                            <input type="password" class="form-control"name="Password" >
+                            <input style="font-family: Arial, Helvetica, sans-serif;" type="password" class="form-control"name="Password" >
                         </div>
                         <button class="btn draw-border" type="submit" name="register">Submit</button>
                         <button type="button" class="btn btn-default  pull-right" data-dismiss="modal">Close</button>

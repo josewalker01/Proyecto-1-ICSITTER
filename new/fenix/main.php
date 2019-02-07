@@ -5,13 +5,19 @@ require_once("util/functions.php");
 require_once("util/db_manager.php");  
 //get messages XD  
 $pdo = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-$data = $pdo->query("SELECT icsitter_user.username, icsitter_message.msg, icsitter_message.msg_date,icsitter_user.username_color
+$data = $pdo->query("SELECT icsitter_user.username, icsitter_message.msg, icsitter_message.msg_date,icsitter_user.username_color,icsitter_user.username_img_url
 FROM icsitter_message INNER JOIN icsitter_user ON icsitter_message.userid = icsitter_user.id ORDER BY icsitter_message.id DESC")->fetchAll();
 $modalScript7 = "<script>
 $( document ).ready(function() {
     $('#login_failed').modal({show:true});
 });
 </script>";
+$modalScript8 = "<script>
+$( document ).ready(function() {
+    $('#errors_settings').modal({show:true});
+});
+</script>";
+
 
 
 $name_err = $surname_err = $email_err = "";

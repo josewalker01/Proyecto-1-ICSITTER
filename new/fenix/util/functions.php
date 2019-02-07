@@ -59,6 +59,26 @@ function update_my_color($username_id, $new_edited_color) {
 
 
 }
+function update_my_img($username_id, $new_edited_img) {
+    try {
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $dbname = 'ICSITTER';
+        $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+        $sql_insertCurrent_info = "UPDATE `icsitter_user` SET `username_img_url` = '$new_edited_img' WHERE `icsitter_user`.`id` = '$username_id';";
+        $conn->exec($sql_insertCurrent_info);
+
+        }
+    catch(PDOException $e)
+        {
+        echo $sql_insertCurrent_info . "<br>" . $e->getMessage();
+        }
+    
+    $conn = null;
+
+
+}
 
 
 function register_me($name_r,$lastname_r,$username_r,$email_r,$password_r) {

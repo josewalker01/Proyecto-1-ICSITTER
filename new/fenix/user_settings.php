@@ -27,12 +27,8 @@ require_once("main.php");
 $This_user_ID = $_SESSION["username"];
 $iduser_find  = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
 $user_id      = $iduser_find->query("SELECT id FROM `icsitter_user` WHERE `username`='$This_user_ID';")->fetch(Pdo::FETCH_COLUMN);
-if (isset($_POST['Send'])) {
-    $username_p = $user_id;
-    $msg        = $_POST['msg_current'];
-    insertInfo($username_p, $msg);
-    header("Location: registered.php");
-}
+$user_img = $iduser_find->query("SELECT username_img_url FROM `icsitter_user` WHERE `username`='$This_user_ID';")->fetch(Pdo::FETCH_COLUMN);
+
 if (empty($_SESSION["username"])) {
     header("Location: index.php");
 }
@@ -58,12 +54,14 @@ $( document ).ready(function() {
         echo $modalScript5;
         $setting_success_msg1 = "Your Password have been succesfully changed!";
         $setting_success_msg2 = "";
+        $setting_success_msg3 = "";
     } else {
         $password_error = "password must not be empty";
         echo $modalScript4;
     }
     
 }
+// COLOR
 if (isset($_POST['edit_color'])) {
     $modalScript4 = "<script>
 $( document ).ready(function() {
@@ -83,8 +81,40 @@ $( document ).ready(function() {
         echo $modalScript5;
         $setting_success_msg2 = "Your username color have been succesfully changed!";
         $setting_success_msg1 = "";
+        $setting_success_msg3 = "";
     } else {
         $password_error = "color must not be empty";
+        echo $modalScript4;
+    }
+    
+}
+
+
+
+
+// IMAGE
+if (isset($_POST['edit_img'])) {
+    $modalScript4 = "<script>
+$( document ).ready(function() {
+    $('#errors_settings').modal({show:true});
+});
+</script>";
+    $modalScript5 = "<script>
+$( document ).ready(function() {
+    $('#edit_succesful').modal({show:true});
+});
+</script>";
+    
+    if (!empty($_POST['edited_img'])) {
+        $new_edited_img = $_POST['edited_img'];
+        $username_id         = $user_id;
+        update_my_img($username_id, $new_edited_img);
+        echo $modalScript5;
+        $setting_success_msg2 = "";
+        $setting_success_msg1 = "";
+        $setting_success_msg3 = "Your image have been succesfully changed!";
+    } else {
+        $password_error = "image URL must not be empty";
         echo $modalScript4;
     }
     
@@ -98,7 +128,7 @@ $( document ).ready(function() {
                 <a href="#" class="w3-bar-item w3-button">I C S I T T E R</a>
                 <a href="registered.php" class="w3-bar-item w3-button">>Home</a>
                 <a href="#" class="w3-bar-item w3-button">About</a>
-                <img src="img/phoenix.png" alt="Avatar" class="w3-right w3-circle w3-margin-right hvr-rotate" style="width:35px">
+                <img src="<?php echo $user_img; ?>" alt="Avatar" class="w3-right w3-circle w3-margin-right hvr-rotate" style="width:35px">
                 <a class="w3-right w3-button" onclick="abretesesamo2()">
                     <?php echo $_SESSION["username"];?>
                     </i>
@@ -160,13 +190,26 @@ $( document ).ready(function() {
                                                                 <span class="glyphicon glyphicon-refresh"></span> ok!
                                                     </button>
                                                 </form>
-                                            </div>
-                    </div>
-                    <br>
-                    <div class="col-md-4 w3-animate-right ">
-                    </div>
-                </div>
-            </div>
+                                                        </div>
+                                                                <hr>
+                                                             <h5>Image!</<h5> <a href="#img_edit" data-toggle="collapse"><span class="glyphicon glyphicon-cog w3-spin"></span></a>
+                                                                 <div id="img_edit" class="collapse">
+                                                                     <br>
+                                                                     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+                                                                         Paste your image "URL"!:<br>
+                                                                         <input style="color:black;" type="text" name="edited_img">
+                                                                         <button class="btn w3-button " type="submit" name="edit_img">
+                                                                                 <span class="glyphicon glyphicon-refresh"></span> ok!
+                                                                             </button>
+                                                                     </form>
+                                                                 </div>
+                                                                 <hr>
+                                                             </div>
+                                                             <br>
+                                                             <div class="col-md-4 w3-animate-right ">
+                                                             </div>
+                                                         </div>
+                                                     </div>
 
 
 
@@ -184,11 +227,10 @@ $( document ).ready(function() {
                         <div class="modal-body">
                             <h4>There are some errors...</h4>
                             <section class="c-container"> 
-  <div class="o-circle c-container__circle o-circle__sign--failure">
-    <div class="o-circle__sign"></div>  
-  </div>   
-  
-</section>   
+                                <div class="o-circle c-container__circle o-circle__sign--failure">
+                                  <div class="o-circle__sign"></div>  
+                                </div>   
+                            </section>   
                             <h5>You might want to check:</h5>
                             <?php
                             // errores
@@ -216,13 +258,14 @@ $( document ).ready(function() {
                             <center>
                             <section class="c-container">
   
-  <div class="o-circle c-container__circle o-circle__sign--success">
-    <div class="o-circle__sign"></div>  
-  </div>     
+                             <div class="o-circle c-container__circle o-circle__sign--success">
+                                    <div class="o-circle__sign"></div>  
+                                    </div>     
                                 <h5>
                                     <?php   
                                     echo $setting_success_msg1;
                                     echo $setting_success_msg2;
+                                    echo $setting_success_msg3;
                                     ?>
                                 </h5>
                             </center>
